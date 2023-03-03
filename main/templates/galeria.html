@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block titulo %} Galeria {% endblock %}
+
+{% block contenido %} 
+
+<div id="portfolio" class="section lb">
+    <div class="container">
+        <div class="section-title text-center">
+            <h3>Galeria</h3>
+            <p>Bienvenidos a la galeria de fotos</p>
+        </div><!-- end title -->
+        
+        <div class="gallery-menu row text-center">
+            <div class="col-md-12">
+                <div class="button-group filter-button-group">
+                    <button class="active" data-filter="*">Todas</button>
+                    {% for category in categories %}
+                    <button data-filter=".{{category.title}}">{{category.title}}</button>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+        <div class="gallery-list row">
+            {% for image in images %}
+            <div class="col-md-4 col-sm-6 gallery-grid {{image.shashtags}}">
+                <div class="gallery-single fix">
+                    <img src="{{image.landImage.url}}" class="img-fluid" alt="{{image.altText}}">
+                    <div class="img-overlay">
+                        <a href="{{image.landImage.url}}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="fa fa-picture-o"></i></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+            
+        </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

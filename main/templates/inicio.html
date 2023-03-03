@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block titulo %} Inicio {% endblock %}
+
+{% block contenido %} 
+
+<div id="content">
+    <div id="slider">
+      {% for image in images %}
+      <img src="{{image.landImage.url}}" alt="Web Developer" data-url="#1">
+      {% endfor %}
+      
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block titulo %} Inicio {% endblock %}
+
+{% block contenido %} 
+
+<div id="blog" class="section lb">
+    <div class="container">
+        <div class="section-title text-center">
+            <h3>Blog</h3>
+            <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus.</p>
+        </div><!-- end title -->
+        
+        <div class="row">
+            {% for blog in blogs %}
+            <div class="col-md-4 col-sm-6 col-lg-4">
+                <div class="post-box">
+                    <div class="post-thumb">
+                        <img src="{{blog.image.squareImage.url}}" class="img-fluid" alt="post-img" />
+                        
+                    </div>
+                    <div class="post-info">
+                        <h4>{{blog.title}}.</h4>
+                        <ul>
+                            <li>by admin</li>
+                            <li>{{blog.date_created}}</li>
+                            <li><a href="#"><b> Leer más</b></a></li>
+                        </ul>
+                        <p>{{blog.shortDescription}}</p>
+                    </div>
+                </div>
+            </div>
+            
+            {% endfor %}
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %}
